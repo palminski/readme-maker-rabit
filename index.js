@@ -6,6 +6,15 @@ const questions = [
     {
         type: "input",
         name: "title",
+        validate: input => {
+            if (input) {
+                return true;
+            }
+            else {
+                console.log ("you must provide a title for your project");
+                return false;
+            };
+        },
         message: "what is your project's title?"
     },
     {
@@ -34,8 +43,9 @@ const questions = [
         message: "Please enter test instructions for this project."
     },
     {
-        type: "input",
+        type: "list",
         name: "licence",
+        choices: ["test","test2","test3"],
         message: "PLACEHOLDER FOR LICENCE INFO."
     },
     {
