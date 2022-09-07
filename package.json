@@ -1,0 +1,22 @@
+{
+  "name": "readme-maker-rabit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palminski/readme-maker-rabit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/palminski/readme-maker-rabit/issues"
+  },
+  "homepage": "https://github.com/palminski/readme-maker-rabit#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
