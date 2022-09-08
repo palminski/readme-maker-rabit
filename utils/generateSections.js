@@ -2,10 +2,12 @@
 
 const generateDescription = (description) => {
     if (!description) {
-        return "\n";
+        return "";
     }
     else {
-        return description + "\n";
+        return "\n" + `## Description
+${description}
+`;
     }
 }
 
