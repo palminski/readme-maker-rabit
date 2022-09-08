@@ -13,63 +13,94 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  const generateDescription = (data) => {
-    if (!data.description) {
+  //Splits data.variables into variables
+  const {title,description,installation,usage,contributing,test,username,email} = data;
+ 
+  //These functions will create a section of the markdown depending on weather or not a specific parameter was included by user
+  const generateDescription = () => {
+    if (!description) {
       return "\n";
     }
     else
     {
-      return data.description + "\n";
+      return description + "\n";
     }
   }
 
-  const generateInstallation = (data) => {
-    if (!data.installation) {
+  const generateInstallation = () => {
+    if (!installation) {
       return "";
     }
     else {
       return "\n" + `## Instalation
-${data.installation}
+${installation}
 `;
     }
   }
-  const generateUsage = (data) => {
-    if (!data.usage) {
+  const generateUsage = () => {
+    if (!usage) {
       return "";
     }
     else {
       return "\n" + `## Usage
-${data.usage}
+${usage}
 `;
     }
   }
-  const generateContributing = (data) => {
-    if (!data.contributing) {
+  const generateContributing = () => {
+    if (!contributing) {
       return "";
     }
     else {
       return "\n" + `## Contributing
-${data.contributing}
+${contributing}
 `;
     }
   }
-  const generateTests = (data) => {
-    if (!data.test) {
+  const generateTests = () => {
+    if (!test) {
       return "";
     }
     else {
       return "\n" + `## Tests
-${data.test}
+${test}
 `;
     }
   }
-
-  console.log("this function is running");
-
-  return `# ${data.title}
-${generateDescription(data)}${generateInstallation(data)}${generateUsage(data)}${generateContributing(data)}${generateTests(data)}
-we are begining with a simple test. 
+  const generateUsername = () => {
+    if (!username) {
+      return "";
+    }
+    else {
+      return `
+${username}
 `;
+    }
+  }
+  const generateEmail = () => {
+    if (!email) {
+      return "";
+    }
+    else {
+      return `
+${email}
+`;
+    }
+  }  
+  const generateQuestions = () => {
+    if (!username && !email) {
+      return "";
+    }
+    else {
+      return "\n" + `## Questions?
+contact me!${generateUsername()}${generateEmail()}`;
+    }
+  }
+
+  console.log("<><><><><><><><><><><><><><><><>");
+
+  return `# ${title}
+${generateDescription()}${generateInstallation()}${generateUsage()}${generateContributing()}${generateTests()}${generateQuestions()}`;
 
 }
 
