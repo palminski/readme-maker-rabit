@@ -97,7 +97,7 @@ contact me!${generateUsername()}${generateEmail()}`;
     }
   }
 
-  console.log("<><><><><><><><><><><><><><><><>");
+
 
   return `# ${title}
 ${generateDescription()}${generateInstallation()}${generateUsage()}${generateContributing()}${generateTests()}${generateQuestions()}`;

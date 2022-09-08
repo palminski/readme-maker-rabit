@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./utils/generateMarkdown")
+const generateMarkdown = require("./utils/generateMarkdown");
+const { rejects, ok } = require("assert");
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -71,15 +72,48 @@ function init() {
         .prompt(questions)
         .then(answers => {
            return answers;
-        })
+        });
     };
     promptUser()
     .then(answers => {
         return generateMarkdown(answers);
     })
-    .then(response => console.log(response));
+    .then(response => {
+        fs.writeFile("./output/README.md",response, (err) => {
+            if (err) {
+                console.log(`
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+        An error was encountered. It is likely that there was an issue with the file path: ./output/README.md.
+        Please check your computer and try again!
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+                `)
+                throw err;
+            }
+            console.log(`
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+        File Created Succesfully! Check the Output folder to view results!
+        View a preview of the md content below!
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+            `);
+console.log(response);
+console.log("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>")
+        });
+    });
         
 }
 
 // Function call to initialize app
+console.log(`
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+        Welcome to Readme Maker!
+        Please answer some questions about your project below to generate a README.md file for your project.
+        You are not required to answer all the questions, but remember! A good README is descriptive!
+
+<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>  
+`)
 init();
