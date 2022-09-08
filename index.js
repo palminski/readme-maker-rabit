@@ -46,9 +46,9 @@ const questions = [
     },
     {
         type: "list",
-        name: "licence",
-        choices: ["test","test2","test3"],
-        message: "PLACEHOLDER FOR LICENCE INFO."
+        name: "license",
+        choices: ["none","MIT","GNPU"],
+        message: "Please select desired license"
     },
     {
         type: "input",
@@ -95,12 +95,9 @@ function init() {
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
         File Created Succesfully! Check the Output folder to view results!
-        View a preview of the md content below!
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
             `);
-console.log(response);
-console.log("<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>")
         });
     });
         
