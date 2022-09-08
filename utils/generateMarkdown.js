@@ -3,7 +3,13 @@ const licenseText = require("./licenseText");
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-
+  if (license === "none" || !license) {
+    return "";
+  }
+  else
+  {
+    return `![](https://img.shields.io/badge/licence-${license}-9cf)`;
+  }
 }
 
 // TODO: Create a function that returns the license link
@@ -67,7 +73,7 @@ ${html}`
   }
 
   //Other sections made from functions stored in the generate sections .js file
-  return `# ${title}
+  return `# ${title} ${renderLicenseBadge(license)}
 ${generateDescription(description)}${generateTableOfContents()}${generateInstallation(installation)}${generateUsage(usage)}${generateContributing(contributing)}${generateTests(test)}${generateQuestions(username,email)}${renderLicenseSection(license)}`;
 
 }
