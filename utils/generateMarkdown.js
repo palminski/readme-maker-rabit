@@ -1,5 +1,5 @@
 const {generateTableOfContents, generateDescription, generateInstallation, generateUsage, generateContributing, generateTests, generateQuestions} = require("./generateSections.js");
-const licenseText = require("./licenseText");
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -8,13 +8,21 @@ function renderLicenseBadge(license) {
   }
   else
   {
-    return `![](https://img.shields.io/badge/licence-${license}-9cf)`;
+    return `[![](https://img.shields.io/badge/licence-${license}-9cf)](${renderLicenseLink(license)})`;
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license === "MIT") {
+    return "https://opensource.org/licenses/MIT";
+  }
+  else if (license === "GNPU") {
+    return "https://www.gnu.org/licenses/gpl-3.0.en.html";
+  }
+  return "";
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -22,13 +30,13 @@ function renderLicenseSection(license) {
   if (license === "MIT") {
     return `
 ## License
-${licenseText.MIT}
+This project uses the MIT licence. Please click on the badge above or [here](https://opensource.org/licenses/MIT) to view more information.
     `;
   }
   else if (license === "GNPU") {
     return `
 ## License
-${licenseText.GNPU}
+This project uses the GNPU licence. please click the badge above or [here](https://www.gnu.org/licenses/gpl-3.0.en.html) to view more information.
     `;
   }
   else{
