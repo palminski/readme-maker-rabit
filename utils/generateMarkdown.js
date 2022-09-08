@@ -53,7 +53,7 @@ function generateMarkdown(data) {
  
   //Makes a table of contents
   const generateTableOfContents = () => {
-    if (!installation && !usage && !contributing && !test && !username && !email) {
+    if (!installation && !usage && !contributing && !test && !username && !email && !license) {
       return "";
     }
     let html = "";

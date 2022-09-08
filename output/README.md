@@ -1,25 +1,9 @@
-# test 
-test
+# test [![](https://img.shields.io/badge/licence-MIT-9cf)](https://opensource.org/licenses/MIT)
+
 
 ## Table of Contents
-[Installation](#installation)
-[Usage](#usage)
-[Contributing](#contributing)
-[Tests](#tests)
-[Questions](#questions)
+[License](#license)
 
-## Installation
-test
-
-## Usage
-test
-
-## Contributing
-test
-
-## Tests
-test
-
-## Questions?
-contact me!
-my Github page can be viewed [here](https://github.com/test)
+## License
+This project uses the MIT licence. Please click on the badge above or [here](https://opensource.org/licenses/MIT) to view more information.
+    
